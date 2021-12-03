@@ -1,0 +1,43 @@
+// ============================= MAIN CONFIG FILE =============================
+// It's possible to change values directly in this file, but by creating a file
+// called "config.override.json5" in the same directory you can override values
+// without making changes here. This makes your config a lot more portable.
+
+{
+	"_version": "0.2.2",
+
+	// Settings related to remote browser access to the radar
+	"browser": {
+		// Prevents a background from being set in the browser, for OBS capture
+		"transparent": true,
+
+		"ports": {
+			// Serves static files, such as HTML. Use this one in your browser
+			"static": 4903,
+			// Dynamic websocket port, used for live data transport
+			"socket": 4902
+		}
+	},
+
+	// Settings that will change the way the radar will be displayed
+	"radar": {
+		// Frames to smooth out player movement
+		"playerSmoothing": 50,
+
+		// Amount of scaling to apply to player dots on the radar
+		// Values above 1 might be blurry
+		"playerDotScale": 0.7,
+		// Same as the above, but for the bomb
+		"bombDotScale": 2.7
+	},
+
+	// Settings related to the CSGO game
+	"game": {
+		// Seconds of inactivity before considering a connection to the game client as lost
+		// Set to -1 to never timeout
+		"connectionTimout": -1,
+
+		// The port GSI will try to connect to
+		"networkPort": 4901
+	}
+}
